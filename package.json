@@ -10,5 +10,8 @@
   },
   "devDependencies": {
     "vite": "^8.0.4"
+  },
+  "dependencies": {
+    "modern-normalize": "^3.0.1"
   }
 }
