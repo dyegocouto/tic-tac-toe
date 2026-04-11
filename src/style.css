@@ -17,13 +17,14 @@ body {
 }
 
 .window {
-  width: 43.75rem;
+  width: min(95vw, 43.75rem);
   height: 25rem;
   border-radius: 8px;
   background-color: #fff;
   padding: 10px;
   border: 2px solid #ddd;
-  box-shadow: 11px 10px 0px 0px rgba(0, 0, 0, 0.5);
+  box-shadow: clamp(4px, 2vw, 11px) clamp(4px, 1.8vw, 10px) 0px 0px
+    rgba(0, 0, 0, 0.5);
 }
 
 .title-bar {
