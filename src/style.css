@@ -10,6 +10,19 @@ body {
   margin: 0 0.625rem;
 }
 
+.header {
+  margin-top: 30px;
+  width: 100%;
+}
+
+.header-title {
+  text-align: center;
+}
+
+.header-info {
+  text-align: center;
+}
+
 .main {
   flex: 1;
   display: flex;
