@@ -72,13 +72,12 @@ body {
   background-color: #ffb26f;
   height: 90%;
   border-radius: 0.5rem;
-
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.game {
+.board {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 0.625rem;
@@ -91,6 +90,11 @@ body {
   height: 3.75rem;
   background-color: #fff;
   box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+  font-size: 3rem;
+  color: #666;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .cell:hover {
