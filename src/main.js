@@ -19,17 +19,6 @@ function restartGame() {
   modal.close();
 }
 
-function drawOnBoard(event) {
-  const playerValue = "x";
-
-  const cellIndex = event.target.dataset.cell;
-  if (cells[cellIndex] === "") {
-    cells[cellIndex] = playerValue;
-    event.target.textContent = playerValue;
-  }
-  checkForWin();
-}
-
 function declareWinner(winner) {
   if (winner !== "draw") {
     modalMessage.textContent = `${winner} wins!`;
@@ -60,6 +49,32 @@ function checkForWin() {
       declareWinner("player");
     }
   });
+}
+
+function makeAIMove() {
+  const emptyIndexes = cells
+    .map((cell, index) => (cell === "" ? index : null))
+    .filter((index) => index !== null);
+
+  const randomIndex = Math.floor(Math.random() * emptyIndexes.length);
+  const aiMoveIndex = emptyIndexes[randomIndex];
+
+  cells[aiMoveIndex] = "o";
+  document.querySelector(`[data-cell="${aiMoveIndex}"]`).textContent = "o";
+
+  checkForWin();
+}
+
+function drawOnBoard(event) {
+  const playerValue = "x";
+
+  const cellIndex = event.target.dataset.cell;
+  if (cells[cellIndex] === "") {
+    cells[cellIndex] = playerValue;
+    event.target.textContent = playerValue;
+  }
+  checkForWin();
+  makeAIMove();
 }
 
 board.addEventListener("click", (e) => {
