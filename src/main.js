@@ -5,6 +5,10 @@ import "./modal.css";
 const board = document.querySelector(".board");
 const cells = ["", "", "", "", "", "", "", "", ""];
 
+const modal = document.querySelector(".modal");
+const modalMessage = document.querySelector(".modal-message");
+const modalButton = document.querySelector(".modal-button");
+
 function drawOnBoard(event) {
   const playerValue = "x";
 
@@ -14,6 +18,15 @@ function drawOnBoard(event) {
     event.target.textContent = playerValue;
   }
   checkForWin();
+}
+
+function declareWinner(winner) {
+  if (winner !== "draw") {
+    modalMessage.textContent = `${winner} wins!`;
+  } else {
+    modalMessage.textContent = `It's a draw!`;
+  }
+  modal.showModal();
 }
 
 function checkForWin() {
@@ -34,7 +47,7 @@ function checkForWin() {
       cells[condition[1]] === cells[condition[2]] &&
       cells[condition[0]] !== ""
     ) {
-      console.log("win");
+      declareWinner("player");
     }
   });
 }
