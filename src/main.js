@@ -25,7 +25,10 @@ function declareWinner(winner) {
   } else {
     modalMessage.textContent = `It's a draw!`;
   }
-  modal.showModal();
+
+  setTimeout(() => {
+    modal.showModal();
+  }, 300);
 }
 
 function checkForWin() {
