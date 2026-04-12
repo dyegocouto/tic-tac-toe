@@ -9,6 +9,16 @@ const modal = document.querySelector(".modal");
 const modalMessage = document.querySelector(".modal-message");
 const modalButton = document.querySelector(".modal-button");
 
+function restartGame() {
+  cells.forEach((cell, index) => {
+    cells[index] = "";
+    const cellElement = document.querySelector(`[data-cell="${index}"]`);
+    cellElement.textContent = "";
+  });
+
+  modal.close();
+}
+
 function drawOnBoard(event) {
   const playerValue = "x";
 
@@ -55,3 +65,5 @@ function checkForWin() {
 board.addEventListener("click", (e) => {
   drawOnBoard(e);
 });
+
+modalButton.addEventListener("click", restartGame);
