@@ -5,6 +5,8 @@ import "./modal.css";
 const board = document.querySelector(".board");
 const cells = ["", "", "", "", "", "", "", "", ""];
 
+let gameActive = true;
+
 const modal = document.querySelector(".modal");
 const modalMessage = document.querySelector(".modal-message");
 const modalButton = document.querySelector(".modal-button");
@@ -16,19 +18,21 @@ function restartGame() {
     cellElement.textContent = "";
   });
 
+  gameActive = true;
   modal.close();
 }
 
 function declareWinner(winner) {
-  if (winner !== "draw") {
-    modalMessage.textContent = `${winner} wins!`;
-  } else {
-    modalMessage.textContent = `It's a draw!`;
-  }
+  const winners = {
+    x: "Player wins!",
+    o: "CPU wins!",
+    draw: "It's a draw!",
+  };
 
+  modalMessage.textContent = winners[winner];
   setTimeout(() => {
     modal.showModal();
-  }, 300);
+  }, 500);
 }
 
 function checkForWin() {
@@ -49,7 +53,13 @@ function checkForWin() {
       cells[condition[1]] === cells[condition[2]] &&
       cells[condition[0]] !== ""
     ) {
-      declareWinner("player");
+      declareWinner(cells[condition[0]]);
+      gameActive = false;
+    }
+
+    const isDraw = cells.every((cell) => cell !== "") && gameActive;
+    if (isDraw) {
+      declareWinner("draw");
     }
   });
 }
