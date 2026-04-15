@@ -94,7 +94,7 @@ class TicTacToe {
     const aiMoveIndex = emptyIndexes[randomIndex];
 
     this.cells[aiMoveIndex] = "o";
-    document.querySelector(`[data-cell="${aiMoveIndex}"]`).textContent = "o";
+    this.paintCell(document.querySelector(`[data-cell="${aiMoveIndex}"]`), "o");
 
     this.checkForWin();
   }
@@ -109,9 +109,15 @@ class TicTacToe {
     this.makePlayerMove(cellIndex, event.target);
   }
 
+  paintCell(element, icon) {
+    const img = document.createElement("img");
+    img.src = `./src/assets/${icon}.svg`;
+    element.appendChild(img);
+  }
+
   makePlayerMove(index, element) {
     this.cells[index] = "x";
-    element.textContent = "x";
+    this.paintCell(element, "x");
 
     this.checkForWin();
     this.makeAIMove();
