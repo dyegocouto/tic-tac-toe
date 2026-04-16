@@ -1,6 +1,8 @@
 import "modern-normalize/modern-normalize.css";
 import "./style.css";
 import "./modal.css";
+import xIcon from "./assets/x.svg";
+import oIcon from "./assets/o.svg";
 
 class TicTacToe {
   constructor() {
@@ -111,7 +113,7 @@ class TicTacToe {
 
   paintCell(element, icon) {
     const img = document.createElement("img");
-    img.src = `./src/assets/${icon}.svg`;
+    img.src = icon === "x" ? xIcon : oIcon;
     element.appendChild(img);
   }
 
