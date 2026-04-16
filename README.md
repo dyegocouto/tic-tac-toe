@@ -1,2 +1,8 @@
-# tic-tac-toe
-tic-tac-toe game built using vanilla JS.
+# tic tac toe
+
+![Showcase](/images/large.png)
+
+- Fun, minimalist design
+- Dynamic layout, fits any screen size
+- Vanilla JS and CSS, no frills
+- Light, efficient
